@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jemutai Creations</title>
+<meta name="description" content="Dresses, skirts, tops and bags, sewn and crocheted to fit you. Commit to a custom piece, alterations or tailoring for when Jemutai arrives in the US.">
+<meta property="og:title" content="Jemutai Creations">
+<meta property="og:description" content="Commit to a custom piece, alterations or tailoring. No payment now.">
+<meta property="og:image" content="/img/p13.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--soft:#555;--muted:#333;--line:#111;--red:#c8102e;--sand:#f4efe9;--serif:'Bodoni Moda',Georgia,serif}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font:16px/1.6 'Work Sans',system-ui,sans-serif;color:var(--ink);background:#fff;overflow-x:clip}
+a{color:inherit}a:hover{opacity:.8}
+img{max-width:100%}
+.band{padding:80px 5vw}.wrap{max-width:1240px;margin:0 auto}
+h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,56px);line-height:1}
+.rule{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:32px}
+:focus-visible{outline:3px solid #ffb703;outline-offset:2px}
+
+nav{display:flex;align-items:center;gap:12px 28px;flex-wrap:wrap;padding:18px 5vw;border-bottom:1px solid var(--line)}
+nav a{text-decoration:none;font-size:15px}
+nav .sp{flex:1 1 auto}
+nav .links{display:contents}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;background:var(--ink);color:#fff;text-decoration:none;font:600 16px 'Work Sans',sans-serif;border:0;cursor:pointer}
+.btn:hover{opacity:.88}
+
+header{padding:56px 5vw 40px}
+h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(64px,11vw,152px);line-height:.9;letter-spacing:-.02em}
+h1 i{color:var(--red)}
+.intro{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between;align-items:flex-end;margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
+.intro p{margin:0}.intro .lead{font-size:20px;max-width:44ch}.intro .tags{font-size:15px}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:end}
+.trio img{display:block;width:100%;height:auto}
+
+.dark{background:var(--ink);color:#fff}
+.film{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.film video{flex:0 1 280px;width:280px;max-width:100%;height:auto;background:#000}
+.film div{flex:1 1 420px}
+.film .k{margin:0 0 16px;font-size:14px;color:#bdbdbd}
+.film blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.15}
+.film cite{display:block;margin-top:18px;color:#bdbdbd;font-style:normal}
+
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols3>div{padding:0 28px}.cols3>div:first-child{padding-left:0}.cols3>div+div{border-left:1px solid var(--line)}
+.cols3 h3{margin:0 0 10px;font-family:var(--serif);font-weight:400;font-size:32px}
+.cols3 p{margin:0;color:var(--muted)}
+
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px;align-items:start}
+.gallery figure{margin:0}
+.gallery button{all:unset;display:block;cursor:zoom-in;background:#f3f3f3}
+.gallery button:focus-visible{outline:3px solid #ffb703;outline-offset:2px}
+.gallery img{display:block;width:100%;height:auto} /* full frame, never cropped */
+.gallery figcaption{display:flex;gap:12px;margin-top:12px;font-size:15px;line-height:1.4}
+.gallery figcaption b{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1;color:var(--red)}
+.note{margin:32px 0 0;font-size:13px;color:var(--soft);max-width:80ch}
+
+.about{background:var(--sand)}
+.about .wrap{display:flex;flex-wrap:wrap;gap:56px}
+.about .side{flex:1 1 300px}.about .side h2{margin-bottom:20px}
+.about .side img{display:block;width:100%;max-width:340px;height:auto}
+.qa{flex:2 1 480px;display:flex;flex-direction:column;gap:28px}
+.qa p{margin:0}.qa .q{margin-bottom:4px;font-size:14px;color:var(--soft)}
+.qa .a{font-family:var(--serif);font-size:clamp(21px,2.4vw,26px);line-height:1.3}
+
+.prices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.pills.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.prices div{padding:8px 24px;font-family:var(--serif);font-size:clamp(30px,4.4vw,48px);line-height:1.1;white-space:nowrap}
+.prices div:first-child{padding-left:0}.prices div+div{border-left:1px solid var(--line)}
+.times{margin:32px 0 0;max-width:72ch;color:var(--muted)}
+
+#order{border-top:1px solid var(--line)}
+.order{display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start}
+.order>div:first-child{flex:1 1 460px}.order>div:last-child{flex:1 1 360px}
+.order .lede{margin:10px 0 32px;color:var(--muted);max-width:52ch}
+form{display:flex;flex-direction:column;gap:18px}
+.row{display:flex;gap:16px;flex-wrap:wrap}.row>label{flex:1 1 180px}
+label,.group{display:flex;flex-direction:column;gap:4px;font-size:14px}
+label small,.group small{color:var(--soft);font-size:14px}
+input,select,textarea{font:16px 'Work Sans',sans-serif;color:var(--ink);width:100%}
+input:not([type=checkbox]),select{min-height:46px;border:0;border-bottom:1px solid var(--line);padding:0 2px;background:transparent;border-radius:0}
+textarea{min-height:84px;border:1px solid var(--line);padding:10px;resize:vertical;background:transparent}
+.pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:4px}
+.pills label{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--line);font-weight:600;font-size:15px;cursor:pointer;text-align:center;padding:0 6px}
+.pills input{position:absolute;opacity:0;width:1px;height:1px}
+.pills label:has(input:checked){background:var(--ink);color:#fff}
+.pills label:has(input:focus-visible){outline:3px solid #ffb703;outline-offset:2px}
+.consent{flex-direction:row;gap:10px;align-items:flex-start;line-height:1.45}
+.consent input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--ink)}
+.hp{position:absolute;left:-9999px}
+.privacy{margin:-4px 0 0;font-size:13px;color:var(--soft)}
+.msg{margin:0;min-height:1.4em;font-size:15px}.msg.err{color:var(--red)}.msg.ok{color:#1d6b35;font-weight:600}
+.tally{display:flex;gap:40px;flex-wrap:wrap;margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.tally b{display:block;font-family:var(--serif);font-weight:400;font-size:64px;line-height:1}
+.tally span{font-size:14px}
+.list h3{margin:0 0 6px;font:600 16px 'Work Sans',sans-serif}
+.list .empty{margin:0;color:var(--soft)}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
+th{text-align:left;font-weight:500;font-size:13px;color:var(--soft);padding:8px 8px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:10px 8px 10px 0;border-bottom:1px solid #ddd;vertical-align:top}
+td.r{white-space:nowrap}
+
+footer{background:var(--ink);color:#fff;padding:32px 5vw;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px}
+footer span{font-family:var(--serif);font-size:22px}
+
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(10,10,10,.9)}
+dialog img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto}
+dialog p{color:#fff;text-align:center;margin:10px 0 0;font-size:15px}
+dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#000;font-size:24px;cursor:pointer}
+
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 18px}}
+@media(max-width:700px){
+  .cols3{grid-template-columns:minmax(0,1fr);gap:24px}.cols3>div{padding:0!important;border:0!important}
+  .trio{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .band{padding:56px 5vw}
+}
+@media(max-width:600px){
+  nav .links{display:none}
+  .prices{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}.prices div{padding:8px 12px;font-size:30px}.prices div:nth-child(3){padding-left:0;border-left:0}
+  .pills.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid #ddd}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:6.5em}.stack td::before{content:attr(data-l);float:inline-start;width:6em;margin-inline-start:-6.5em;color:var(--soft)}
+}
+@media(max-width:420px){.gallery{grid-template-columns:minmax(0,1fr)}.pills label{font-size:14px;line-height:1.2}}
+@media(max-width:330px){.pills{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="links">
+    <a href="#work">The work</a>
+    <a href="#about">Jemutai</a>
+    <a href="#pricing">Pricing</a>
+  </span>
+  <span class="sp"></span>
+  <a href="https://www.instagram.com/jemutaicreations/" target="_blank" rel="noopener">@jemutaicreations</a>
+  <a class="btn" href="#order">Commit to an order</a>
+</nav>
+
+<header>
+  <div class="wrap">
+    <h1>Jemutai<br><i>Creations</i></h1>
+    <div class="intro">
+      <p class="lead">Dresses, skirts, tops and bags, sewn and crocheted to fit you. Jemutai is on her way to the US to join her husband, and she's building her business before she lands. Your commitment helps show she'll arrive with real customers and real work, which matters for her visa. Commit today to a custom piece, alterations or tailoring, and she'll do the work when she arrives.</p>
+      <p class="tags">Custom pieces · Alterations · Tailoring</p>
+    </div>
+  </div>
+</header>
+
+<section style="padding:0 5vw 72px">
+  <div class="wrap trio">
+    <img src="/img/p08.webp" width="835" height="1280" alt="Jemutai wearing a red dress with white hearts she made">
+    <img src="/img/p13.webp" width="1171" height="1280" alt="Red crochet two-piece made by Jemutai">
+    <img src="/img/p11.webp" width="787" height="1400" alt="Jemutai in a white tiered maxi skirt and red crop top">
+  </div>
+</section>
+
+<section class="dark band" style="padding-block:64px">
+  <div class="wrap film">
+    <video controls playsinline preload="metadata" poster="/video/poster.jpg" width="464" height="832">
+      <source src="/video/jemutai-sewing.mp4" type="video/mp4">
+    </video>
+    <div>
+      <p class="k">At her machine</p>
+      <blockquote>“I don't like to disappoint anyone. When you ask me for something, I make it well and I make it on time.”</blockquote>
+      <cite>— Jemutai</cite>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="services" style="padding-bottom:0">
+  <div class="wrap">
+    <h2 class="rule">Services</h2>
+    <div class="cols3">
+      <div><h3>Custom pieces</h3><p>New dresses, skirts, tops, crochet sets and bags, designed with you and made to your measurements.</p></div>
+      <div><h3>Alterations</h3><p>Hems, waists, sleeves and fit adjustments on clothes you already own.</p></div>
+      <div><h3>Tailoring</h3><p>Garments shaped closely to your body, from new fabric or your own.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="head rule"><h2>The work</h2><span id="count">24 photos</span></div>
+    <div class="gallery" id="gallery"></div>
+    <p class="note">These are examples of Jemutai's past work. Your order will be made new, to your measurements. Pieces 01–06 are real garments she made, photographed flat and placed on a mannequin digitally to show the fit.</p>
+  </div>
+</section>
+
+<section class="about band" id="about">
+  <div class="wrap">
+    <div class="side">
+      <h2>Jemutai, in her words</h2>
+      <figure style="margin:0;max-width:380px"><img src="/img/p24.webp" width="1080" height="1350" alt="Jemutai wearing the white crochet wedding dress she made, with green and white crochet flowers" loading="lazy" style="display:block;width:100%;height:auto"><figcaption style="margin-top:10px;font-size:14px;color:var(--soft)">Her crochet wedding dress, her proudest piece</figcaption></figure>
+    </div>
+    <div class="qa">
+      <div><p class="q">How did you start?</p><p class="a">My mom taught me to crochet. After that I kept learning on my own, from YouTube and from trying things, until I could sew and crochet much better.</p></div>
+      <div><p class="q">What piece are you proudest of?</p><p class="a">My crochet wedding dress. I made it on a tight deadline, using only the yarn I already had.</p></div>
+      <div><p class="q">What do you want to make in the US?</p><p class="a">Anything that makes someone feel good in their own body. I love it when a piece fits someone's shape perfectly.</p></div>
+      <div><p class="q">What do you love making most?</p><p class="a">Dresses and skirts. Give me fabric and a dress idea and I'm happy all day.</p></div>
+      <div><p class="q">Who do you make for?</p><p class="a">Everyone: women, men, children. If you can wear it, I can make it.</p></div>
+      <div><p class="q">What sizes?</p><p class="a">Your size. Nothing comes off a rack. You send me your measurements and I make it to fit you.</p></div>
+      <div><p class="q">Favorite colors?</p><p class="a">White, black and red. Those are my colors.</p></div>
+      <div><p class="q">What should people know about you?</p><p class="a">I don't like to disappoint anyone. When you ask me for something, I make it well and I make it on time. What you want is what you'll get.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="pricing">
+  <div class="wrap">
+    <h2 class="rule">Pricing</h2>
+    <div class="prices"><div>Under $40</div><div>$40-80</div><div>$80-150</div><div>$150+</div></div>
+    <p class="times">Every piece is made to order, so the price depends on the design. How long it takes, in her words: A simple dress takes me two days, a detailed one up to four. A bag takes one day, or two if it's complicated. A top takes a day.</p>
+  </div>
+</section>
+
+<section class="band" id="order">
+  <div class="wrap order">
+    <div>
+      <h2>Commit to an order</h2>
+      <p class="lede">Tell us what you need, whether that's a custom piece, alterations or tailoring, and your price range. Jemutai will do the work once she's in the US. No payment is taken now.</p>
+      <form id="f" novalidate>
+        <div class="row">
+          <label>First name<input name="firstName" autocomplete="given-name" required maxlength="40"></label>
+          <label><span>Last name <small>(private)</small></span><input name="lastName" autocomplete="family-name" required maxlength="60"></label>
+        </div>
+        <label><span>Email <small>(private)</small></span><input name="email" type="email" autocomplete="email" required maxlength="120"></label>
+        <div class="row">
+          <label style="flex:2 1 200px">City<input name="city" autocomplete="address-level2" required maxlength="60"></label>
+          <label style="flex:1 1 120px">State<select name="state" id="state" required><option value="">Choose</option></select></label>
+        </div>
+        <fieldset class="group" style="border:0;padding:0;margin:0">
+          <legend style="padding:0;margin-bottom:4px">What do you need?</legend>
+          <div class="pills">
+            <label><input type="radio" name="service" value="Custom piece" required>Custom piece</label>
+            <label><input type="radio" name="service" value="Alterations">Alterations</label>
+            <label><input type="radio" name="service" value="Tailoring">Tailoring</label>
+          </div>
+        </fieldset>
+        <label><span>What is it? <small>(for alterations, the garment)</small></span><select name="item" id="item" required><option value="">Choose</option></select></label>
+        <label><span>Describe what you need <small>(optional, private)</small></span><textarea name="details" maxlength="300" placeholder="e.g. a red tiered skirt for a wedding, or take in the waist of my jeans"></textarea></label>
+        <fieldset class="group" style="border:0;padding:0;margin:0">
+          <legend style="padding:0;margin-bottom:4px">Price range</legend>
+          <div class="pills four">
+            <label><input type="radio" name="range" value="under-40" required>Under $40</label>
+            <label><input type="radio" name="range" value="40-80">$40-80</label>
+            <label><input type="radio" name="range" value="80-150">$80-150</label>
+            <label><input type="radio" name="range" value="150+">$150+</label>
+          </div>
+        </fieldset>
+        <label><span>How do you know Jemutai or Benjah? <small>(private)</small></span><select name="knows" id="knows" required><option value="">Choose</option></select></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="consent" required><span>I understand this is a non-binding commitment and nothing is charged today. I agree that my full name, city, state and this commitment may be shared with U.S. immigration authorities in support of Jemutai's case.</span></label>
+        <p class="privacy">Only your first name, city, state, service, item and price range appear publicly. Your last name and email stay private.</p>
+        <button class="btn" type="submit" id="go" style="min-height:54px;font-size:17px">Submit my commitment</button>
+        <p class="msg" id="msg" role="status"></p>
+      </form>
+    </div>
+    <div class="list">
+      <div class="tally" aria-live="polite">
+        <div><b id="t-count">0</b><span>people committed</span></div>
+        <div><b id="t-total">$0</b><span>in committed orders</span></div>
+      </div>
+      <h3>The list</h3>
+      <p class="empty" id="empty">No commitments yet. Be the first name on the list.</p>
+      <table class="stack" id="tbl" hidden>
+        <thead><tr><th>Name</th><th>From</th><th>Order</th><th>Range</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer><span>Jemutai Creations</span><a href="https://www.instagram.com/jemutaicreations/" target="_blank" rel="noopener">@jemutaicreations</a></footer>
+
+<dialog id="lb"><button class="x" id="lbx" aria-label="Close">×</button><img id="lbimg" alt=""><p id="lbcap"></p></dialog>
+
+<script>
+{
+const G=[
+[790,1400,"Grey paisley sleeveless dress"],
+[790,1400,"White and magenta dress"],
+[790,1400,"Denim and lavender skirt with flower appliqué"],
+[740,790,"Pink tiered skirt with bows"],
+[790,1400,"Cream tiered skirt"],
+[790,1400,"Red shorts with white pockets"],
+[787,1400,"Red and beige checkered bag"],
+[835,1280,"Red dress with white hearts and birds"],
+[787,1400,"White tiered maxi skirt"],
+[787,1400,"White tiered maxi skirt, side view"],
+[787,1400,"White tiered maxi skirt with red crop top"],
+[780,1400,"Layered crochet skirt · Medium"],
+[1171,1280,"Red crochet two-piece · Medium"],
+[960,1280,"Blue crochet top with white ruffled skirt"],
+[960,1280,"Pink crochet two-piece with rainbow swirls"],
+[960,1280,"Pink crochet two-piece, back"],
+[713,1019,"Pink crochet hooded jacket with orange flowers"],
+[710,841,"Pink crochet hooded jacket, back"],
+[738,1280,"Denim pinafore with African-print pockets · Medium"],
+[960,1280,"Recycled denim skirt and black top · Medium"],
+[960,1280,"Recycled denim skirt and black top, front"],
+[780,1172,"Green textured shoulder bag (photo touched up with AI)"],
+[1178,1200,"Handcrafted cream handbag (photo touched up with AI)"],
+[1080,1350,"Crochet wedding dress, her proudest piece"]];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $=id=>document.getElementById(id);
+const nn=i=>String(i+1).padStart(2,"0");
+$("count").textContent=G.length+" photos";
+$("gallery").innerHTML=G.map(([w,h,c],i)=>`<figure><button type="button" data-i="${i}" aria-label="Open photo ${i+1}: ${esc(c)}"><img src="/img/p${nn(i)}.webp" width="${w}" height="${h}" alt="${esc(c)}" loading="${i<3?"eager":"lazy"}"></button><figcaption><b>${nn(i)}</b><span>${esc(c)}</span></figcaption></figure>`).join("");
+
+const lb=$("lb");
+$("gallery").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;const i=+b.dataset.i;$("lbimg").src=`/img/p${nn(i)}.webp`;$("lbimg").alt=G[i][2];$("lbcap").textContent=`${nn(i)}  ${G[i][2]}`;lb.showModal()});
+$("lbx").addEventListener("click",()=>lb.close());
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+
+const STATES=["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","PR"];
+const ITEMS=["Dress","Skirt","Top","Trousers","Shirt","Crochet set","Bag","Other"];
+const KNOWS=["Family","Friend","Coworker or acquaintance","Friend of a friend","Haven't met them"];
+const fill=(id,a)=>$(id).insertAdjacentHTML("beforeend",a.map(v=>`<option>${esc(v)}</option>`).join(""));
+fill("state",STATES);fill("item",ITEMS);fill("knows",KNOWS);
+
+function render(d){
+  const money="$"+Number(d.atLeast).toLocaleString("en-US");
+  $("t-count").textContent=d.count;$("t-total").textContent=money;
+  if(!d.count){$("tbl").hidden=true;$("empty").hidden=false;return}
+  $("empty").hidden=true;
+  $("rows").innerHTML=d.list.map(r=>`<tr><td data-l="Name">${esc(r.firstName)}</td><td data-l="From">${esc(r.city)}, ${esc(r.state)}</td><td data-l="Order">${esc(r.service||"")}${r.service?": ":""}${esc(r.item)}</td><td class="r" data-l="Range">${esc(r.range)}</td></tr>`).join("");
+  $("tbl").hidden=false;
+}
+fetch("/api/commitments").then(r=>r.json()).then(render).catch(()=>{});
+
+const f=$("f"),msg=$("msg"),go=$("go");
+f.addEventListener("submit",async e=>{
+  e.preventDefault();msg.className="msg";msg.textContent="";
+  if(!f.checkValidity()){msg.className="msg err";msg.textContent="Please fill in every field and tick the box.";f.reportValidity();return}
+  const b=Object.fromEntries(new FormData(f));b.consent=f.consent.checked;
+  go.disabled=true;go.textContent="Sending…";
+  try{
+    const r=await fetch("/api/commitments",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)});
+    const d=await r.json();
+    if(!r.ok)throw new Error(d.error||"Something went wrong.");
+    render(d);f.reset();msg.className="msg ok";msg.textContent=`Thank you, ${b.firstName}! Your commitment is on the list.`;
+  }catch(err){msg.className="msg err";msg.textContent=err.message||"Could not send. Please try again."}
+  finally{go.disabled=false;go.textContent="Submit my commitment"}
+});
+}
+</script>
+</body>
+</html>
