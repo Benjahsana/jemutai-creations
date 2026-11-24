@@ -285,6 +285,7 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
 
 <script>
 {
+const API="__API_URL__"; // Google Apps Script web app that saves to the private Google Sheet
 const G=[
 [790,1400,"Grey paisley sleeveless dress"],
 [790,1400,"White and magenta dress"],
@@ -335,7 +336,7 @@ function render(d){
   $("rows").innerHTML=d.list.map(r=>`<tr><td data-l="Name">${esc(r.firstName)}</td><td data-l="From">${esc(r.city)}, ${esc(r.state)}</td><td data-l="Order">${esc(r.service||"")}${r.service?": ":""}${esc(r.item)}</td><td class="r" data-l="Range">${esc(r.range)}</td></tr>`).join("");
   $("tbl").hidden=false;
 }
-fetch("/api/commitments").then(r=>r.json()).then(render).catch(()=>{});
+fetch(API).then(r=>r.json()).then(d=>{if(!d.error)render(d)}).catch(()=>{});
 
 const f=$("f"),msg=$("msg"),go=$("go");
 f.addEventListener("submit",async e=>{
@@ -344,9 +345,9 @@ f.addEventListener("submit",async e=>{
   const b=Object.fromEntries(new FormData(f));b.consent=f.consent.checked;
   go.disabled=true;go.textContent="Sending…";
   try{
-    const r=await fetch("/api/commitments",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)});
+    const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)});
     const d=await r.json();
-    if(!r.ok)throw new Error(d.error||"Something went wrong.");
+    if(!r.ok||d.error)throw new Error(d.error||"Something went wrong.");
     render(d);f.reset();msg.className="msg ok";msg.textContent=`Thank you, ${b.firstName}! Your commitment is on the list.`;
   }catch(err){msg.className="msg err";msg.textContent=err.message||"Could not send. Please try again."}
   finally{go.disabled=false;go.textContent="Submit my commitment"}
