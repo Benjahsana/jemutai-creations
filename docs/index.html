@@ -232,6 +232,7 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
       <h2>Commit to an order</h2>
       <p class="lede">Tell us what you need, whether that's a custom piece, alterations or tailoring, and your price range. Jemutai will do the work once she's in the US. No payment is taken now.</p>
       <form id="f" novalidate>
+        <label class="consent"><input type="checkbox" name="consent" required><span>I understand this is a non-binding commitment and nothing is charged today. I agree that my full name, city, state and this commitment may be shared with U.S. immigration authorities in support of Jemutai's case.</span></label>
         <div class="row">
           <label>First name<input name="firstName" autocomplete="given-name" required maxlength="40"></label>
           <label><span>Last name <small>(private)</small></span><input name="lastName" autocomplete="family-name" required maxlength="60"></label>
@@ -262,7 +263,6 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
         </fieldset>
         <label><span>How do you know Jemutai or Benjah? <small>(private)</small></span><select name="knows" id="knows" required><option value="">Choose</option></select></label>
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="consent"><input type="checkbox" name="consent" required><span>I understand this is a non-binding commitment and nothing is charged today. I agree that my full name, city, state and this commitment may be shared with U.S. immigration authorities in support of Jemutai's case.</span></label>
         <p class="privacy">Only your first name, city, state, service, item and price range appear publicly. Your last name and email stay private.</p>
         <button class="btn" type="submit" id="go" style="min-height:54px;font-size:17px">Submit my commitment</button>
         <p class="msg" id="msg" role="status"></p>
