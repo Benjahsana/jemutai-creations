@@ -52,21 +52,23 @@ function doPost(e) {
     var b;
     try { b = JSON.parse(e.postData.contents); } catch (x) { return out_({ error: 'Bad request.' }); }
     if (b.website) return out_(publicList_()); // bot trap
+    var full = clean_(b.fullName || ((b.firstName || '') + ' ' + (b.lastName || '')), 100);
+    var parts = full.split(' ');
     var r = {
-      firstName: clean_(b.firstName, 40), lastName: clean_(b.lastName, 60), email: clean_(b.email, 120).toLowerCase(),
+      firstName: clean_(parts.shift(), 40), lastName: clean_(parts.join(' '), 60), email: clean_(b.email, 120).toLowerCase(),
       city: clean_(b.city, 60), state: clean_(b.state, 2).toUpperCase(), service: clean_(b.service, 20), item: clean_(b.item, 40),
       details: clean_(b.details, 300), range: clean_(b.range, 10), knows: clean_(b.knows, 40)
     };
-    if (!r.firstName || !r.lastName) return out_({ error: 'Please add your first and last name.' });
+    if (!r.firstName) return out_({ error: 'Please add your name.' });
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(r.email)) return out_({ error: 'Please add a valid email.' });
     if (!r.city || STATES.indexOf(r.state) < 0) return out_({ error: 'Please add your city and state.' });
     if (SERVICES.indexOf(r.service) < 0) return out_({ error: 'Please choose what you need: a custom piece, alterations or tailoring.' });
-    if (ITEMS.indexOf(r.item) < 0) return out_({ error: 'Please choose what it is.' });
-    if (!RANGES[r.range]) return out_({ error: 'Please choose a price range.' });
-    if (KNOWS.indexOf(r.knows) < 0) return out_({ error: 'Please say how you know Jemutai or Benjah.' });
-    if (b.consent !== true) return out_({ error: 'Please tick the box to confirm.' });
+    if (ITEMS.indexOf(r.item) < 0) r.item = '';
+    if (!RANGES[r.range]) return out_({ error: 'Please choose your budget.' });
+    if (KNOWS.indexOf(r.knows) < 0) r.knows = '';
+    if (b.consent !== true) return out_({ error: 'Please tick the box at the top to continue.' });
     var label = RANGES[r.range][0];
-    var dupe = rows_().some(function (x) { return String(x[3]).toLowerCase() === r.email && x[6] === r.service && x[7] === r.item; });
+    var dupe = rows_().some(function (x) { return String(x[3]).toLowerCase() === r.email && x[6] === r.service && x[9] === RANGES[r.range][0]; });
     if (dupe) return out_({ error: 'You already made this commitment with that email. Thank you!' });
     sheet_().appendRow([new Date(), r.firstName, r.lastName, r.email, r.city, r.state, r.service, r.item, r.details, label, r.knows, 'yes']);
     var res = publicList_(); res.ok = true;

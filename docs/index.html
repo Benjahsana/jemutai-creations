@@ -14,6 +14,7 @@
 <style>
 :root{--ink:#111;--soft:#555;--muted:#333;--line:#111;--red:#c8102e;--sand:#f4efe9;--serif:'Bodoni Moda',Georgia,serif}
 *{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;font:16px/1.6 'Work Sans',system-ui,sans-serif;color:var(--ink);background:#fff;overflow-x:clip}
@@ -107,6 +108,17 @@ th{text-align:left;font-weight:500;font-size:13px;color:var(--soft);padding:8px 
 td{padding:10px 8px 10px 0;border-bottom:1px solid #ddd;vertical-align:top}
 td.r{white-space:nowrap}
 
+.proof{margin:-18px 0 24px;font-weight:600}
+.step{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
+.step legend{padding:0;margin-bottom:6px;font-size:16px;font-weight:600}
+.btn.go{min-height:56px;font-size:18px;width:100%}
+.thanks{border:1px solid var(--line);padding:28px}
+.thanks h3{margin:0 0 8px;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05}
+.thanks p{margin:0 0 20px;color:var(--muted)}
+.share{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.again{all:unset;margin-top:18px;display:inline-block;text-decoration:underline;cursor:pointer;font-size:15px}
+.again:focus-visible{outline:3px solid #ffb703;outline-offset:2px}
 footer{background:var(--ink);color:#fff;padding:32px 5vw;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px}
 footer span{font-family:var(--serif);font-size:22px}
 
@@ -229,31 +241,23 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
 <section class="band" id="order">
   <div class="wrap order">
     <div>
-      <h2>Commit to an order</h2>
-      <p class="lede">Tell us what you need, whether that's a custom piece, alterations or tailoring, and your price range. Jemutai will do the work once she's in the US. No payment is taken now.</p>
+      <h2>Hold a spot in her schedule</h2>
+      <p class="lede">Commit to a custom piece, alterations or tailoring. It takes 30 seconds, and there's nothing to pay now.</p>
+      <p class="proof" id="proof" hidden></p>
       <form id="f" novalidate>
-        <label class="consent"><input type="checkbox" name="consent" required><span>I understand this is a non-binding commitment and nothing is charged today. I agree that my full name, city, state and this commitment may be shared with U.S. immigration authorities in support of Jemutai's case.</span></label>
-        <div class="row">
-          <label>First name<input name="firstName" autocomplete="given-name" required maxlength="40"></label>
-          <label><span>Last name <small>(private)</small></span><input name="lastName" autocomplete="family-name" required maxlength="60"></label>
-        </div>
-        <label><span>Email <small>(private)</small></span><input name="email" type="email" autocomplete="email" required maxlength="120"></label>
-        <div class="row">
-          <label style="flex:2 1 200px">City<input name="city" autocomplete="address-level2" required maxlength="60"></label>
-          <label style="flex:1 1 120px">State<select name="state" id="state" required><option value="">Choose</option></select></label>
-        </div>
-        <fieldset class="group" style="border:0;padding:0;margin:0">
-          <legend style="padding:0;margin-bottom:4px">What do you need?</legend>
+        <label class="consent"><input type="checkbox" name="consent" required><span>This is a non-binding commitment and nothing is charged. I agree my name, city, state and commitment may be shared with U.S. immigration authorities to support Jemutai's case.</span></label>
+
+        <fieldset class="step">
+          <legend>What would you like?</legend>
           <div class="pills">
             <label><input type="radio" name="service" value="Custom piece" required>Custom piece</label>
             <label><input type="radio" name="service" value="Alterations">Alterations</label>
             <label><input type="radio" name="service" value="Tailoring">Tailoring</label>
           </div>
         </fieldset>
-        <label><span>What is it? <small>(for alterations, the garment)</small></span><select name="item" id="item" required><option value="">Choose</option></select></label>
-        <label><span>Describe what you need <small>(optional, private)</small></span><textarea name="details" maxlength="300" placeholder="e.g. a red tiered skirt for a wedding, or take in the waist of my jeans"></textarea></label>
-        <fieldset class="group" style="border:0;padding:0;margin:0">
-          <legend style="padding:0;margin-bottom:4px">Price range</legend>
+
+        <fieldset class="step">
+          <legend>Your budget</legend>
           <div class="pills four">
             <label><input type="radio" name="range" value="under-40" required>Under $40</label>
             <label><input type="radio" name="range" value="40-80">$40-80</label>
@@ -261,22 +265,43 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
             <label><input type="radio" name="range" value="150+">$150+</label>
           </div>
         </fieldset>
-        <label><span>How do you know Jemutai or Benjah? <small>(private)</small></span><select name="knows" id="knows" required><option value="">Choose</option></select></label>
+
+        <label><span>Anything specific? <small>(optional)</small></span><input name="details" maxlength="200" placeholder="e.g. a red skirt for a wedding, or hem my jeans"></label>
+
+        <label><span>Full name</span><input name="fullName" autocomplete="name" required maxlength="100"></label>
+        <label><span>Email <small>(private)</small></span><input name="email" type="email" autocomplete="email" required maxlength="120"></label>
+        <div class="row">
+          <label style="flex:2 1 200px">City<input name="city" autocomplete="address-level2" required maxlength="60"></label>
+          <label style="flex:1 1 110px">State<select name="state" id="state" required><option value="">Choose</option></select></label>
+        </div>
+        <label><span>How do you know Jemutai or Benjah? <small>(optional)</small></span><select name="knows" id="knows"><option value="">Choose</option></select></label>
+
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <p class="privacy">Only your first name, city, state, service, item and price range appear publicly. Your last name and email stay private.</p>
-        <button class="btn" type="submit" id="go" style="min-height:54px;font-size:17px">Submit my commitment</button>
+        <button class="btn go" type="submit" id="go">Commit and hold my spot</button>
         <p class="msg" id="msg" role="status"></p>
+        <p class="privacy">Only your first name, city, state, service and budget appear on the list. Your full name and email stay private.</p>
       </form>
+
+      <div class="thanks" id="thanks" hidden tabindex="-1">
+        <h3 id="thanks-h">Thank you!</h3>
+        <p>Your spot is held, and your name is on the list. One more thing that helps a lot: send this to one friend who loves good clothes.</p>
+        <div class="share">
+          <a class="btn" id="sh-wa" target="_blank" rel="noopener">Share on WhatsApp</a>
+          <a class="btn ghost" id="sh-fb" target="_blank" rel="noopener">Share on Facebook</a>
+          <button class="btn ghost" type="button" id="sh-copy">Copy link</button>
+        </div>
+        <button type="button" class="again" id="again">Commit to another piece</button>
+      </div>
     </div>
     <div class="list">
       <div class="tally" aria-live="polite">
         <div><b id="t-count">0</b><span>people committed</span></div>
-        <div><b id="t-total">$0</b><span>in committed orders</span></div>
+        <div><b id="t-total">$0</b><span>in committed work</span></div>
       </div>
       <h3>The list</h3>
       <p class="empty" id="empty">No commitments yet. Be the first name on the list.</p>
       <table class="stack" id="tbl" hidden>
-        <thead><tr><th>Name</th><th>From</th><th>Order</th><th>Range</th></tr></thead>
+        <thead><tr><th>Name</th><th>From</th><th>For</th><th>Budget</th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
@@ -327,34 +352,48 @@ $("lbx").addEventListener("click",()=>lb.close());
 lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
 
 const STATES=["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","PR"];
-const ITEMS=["Dress","Skirt","Top","Trousers","Shirt","Crochet set","Bag","Other"];
 const KNOWS=["Family","Friend","Coworker or acquaintance","Friend of a friend","Haven't met them"];
 const fill=(id,a)=>$(id).insertAdjacentHTML("beforeend",a.map(v=>`<option>${esc(v)}</option>`).join(""));
-fill("state",STATES);fill("item",ITEMS);fill("knows",KNOWS);
+fill("state",STATES);fill("knows",KNOWS);
 
 function render(d){
   const money="$"+Number(d.atLeast).toLocaleString("en-US");
   $("t-count").textContent=d.count;$("t-total").textContent=money;
+  if(d.count>0){$("proof").textContent=`Join ${d.count} ${d.count===1?"person who has":"people who have"} already committed.`;$("proof").hidden=false}
   if(!d.count){$("tbl").hidden=true;$("empty").hidden=false;return}
   $("empty").hidden=true;
-  $("rows").innerHTML=d.list.map(r=>`<tr><td data-l="Name">${esc(r.firstName)}</td><td data-l="From">${esc(r.city)}, ${esc(r.state)}</td><td data-l="Order">${esc(r.service||"")}${r.service?": ":""}${esc(r.item)}</td><td class="r" data-l="Range">${esc(r.range)}</td></tr>`).join("");
+  $("rows").innerHTML=d.list.map(r=>`<tr><td data-l="Name">${esc(r.firstName)}</td><td data-l="From">${esc(r.city)}, ${esc(r.state)}</td><td data-l="For">${esc(r.service||"")}</td><td class="r" data-l="Budget">${esc(r.range)}</td></tr>`).join("");
   $("tbl").hidden=false;
 }
 fetch(API).then(r=>r.json()).then(d=>{if(!d.error)render(d)}).catch(()=>{});
 
+const SITE="https://jemutai.xyz";
+const SHARE="Jemutai makes beautiful custom clothes and is waiting to join her husband in the US. I just committed to an order. You can too, it takes 30 seconds and there's nothing to pay now:";
+$("sh-wa").href="https://wa.me/?text="+encodeURIComponent(SHARE+" "+SITE);
+$("sh-fb").href="https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(SITE);
+$("sh-copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(SITE);$("sh-copy").textContent="Link copied"}catch(e){$("sh-copy").textContent=SITE}});
+$("again").addEventListener("click",()=>{$("thanks").hidden=true;f.hidden=false;f.scrollIntoView({block:"start"})});
+
 const f=$("f"),msg=$("msg"),go=$("go");
 f.addEventListener("submit",async e=>{
   e.preventDefault();msg.className="msg";msg.textContent="";
-  if(!f.checkValidity()){msg.className="msg err";msg.textContent="Please fill in every field and tick the box.";f.reportValidity();return}
+  if(!f.checkValidity()){
+    const bad=f.querySelector(":invalid");
+    msg.className="msg err";
+    msg.textContent=bad&&bad.name==="consent"?"Please tick the box at the top to continue.":bad&&(bad.name==="service"||bad.name==="range")?"Please choose what you'd like and your budget.":"Please fill in your name, email, city and state.";
+    if(bad)bad.focus();return}
   const b=Object.fromEntries(new FormData(f));b.consent=f.consent.checked;
-  go.disabled=true;go.textContent="Sending…";
+  go.disabled=true;go.textContent="Holding your spot…";
   try{
     const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)});
     const d=await r.json();
     if(!r.ok||d.error)throw new Error(d.error||"Something went wrong.");
-    render(d);f.reset();msg.className="msg ok";msg.textContent=`Thank you, ${b.firstName}! Your commitment is on the list.`;
+    render(d);
+    const first=String(b.fullName).trim().split(/\s+/)[0];
+    $("thanks-h").textContent=`Thank you, ${first}!`;
+    f.reset();f.hidden=true;$("thanks").hidden=false;$("thanks").focus();
   }catch(err){msg.className="msg err";msg.textContent=err.message||"Could not send. Please try again."}
-  finally{go.disabled=false;go.textContent="Submit my commitment"}
+  finally{go.disabled=false;go.textContent="Commit and hold my spot"}
 });
 }
 </script>
